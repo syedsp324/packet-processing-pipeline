@@ -133,3 +133,9 @@ To rerun the benchmark:
 - Expand malformed-packet and protocol test coverage.
 - Add more representative packet captures for validation.
 - Measure end-to-end processing throughput and latency.
+
+## Scripts and Results
+
+- **`scripts/`** — Utility scripts for generating routing-table data and synthetic PCAP test captures, plus `run_tests.bat` for building the project and running the test suites.
+- **`results/`** — Stores benchmark output, including `benchmark_results.csv` with the measured linear-routing and trie-routing lookup times.
+

@@ -6,7 +6,11 @@
 #include "routing_table.hpp"
 #include "acl.hpp"
 
-int main() {
+int main(int argc, char* argv[]) {
+    if (argc != 2) {
+        std::cerr << "Usage: packet_pipeline <pcap_file>\n";
+        return 1;
+    }
     // Load the routing table.
     RoutingTable routes;
     if (!routes.load("data/routes.txt")) {
@@ -39,9 +43,10 @@ int main() {
     // Unmatched packets are denied by ACLFirewall::evaluate().
 
     // Open the real DNS capture.
-    PcapReader reader("data/traces/dns.cap");
+    PcapReader reader(argv[1]);
     if (!reader.is_open()) {
-        std::cerr << "Error: Could not open data/traces/dns.cap\n";
+        std::cerr << "Error: Could not open PCAP file: "
+        < argv[1] << '\n';
         return 1;
     }
 
