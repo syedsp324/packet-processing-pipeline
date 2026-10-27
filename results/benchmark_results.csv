@@ -1,0 +1,2 @@
+routes,lookups,linear_time_ms,trie_time_ms,speedup,build_type
+10000,1000000,10948.7,81.9379,133.622,Release
